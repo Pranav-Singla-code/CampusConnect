@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect | College Events</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="logo" href="#">Campus<span>Connect</span></a>
+      <div class="nav-links">
+        <a href="#events">Events</a>
+        <a href="#about">About</a>
+        <button class="my-events-btn" id="myEventsBtn">My registrations</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">YOUR CAMPUS, YOUR COMMUNITY</p>
+        <h1>Find your next<br><span>campus experience.</span></h1>
+        <p class="hero-text">Discover workshops, competitions and events happening around your college.</p>
+        <a class="primary-btn" href="#events">Explore events <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-note">
+        <span class="note-icon">✦</span>
+        <div><strong>Something happening?</strong><br><small>It's probably here.</small></div>
+      </div>
+    </section>
+
+    <section class="events-section" id="events">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">WHAT'S ON</p>
+          <h2>Upcoming events</h2>
+        </div>
+        <p class="event-count" id="eventCount">Events around campus</p>
+      </div>
+
+      <div class="filters">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input type="search" id="searchInput" placeholder="Search events..." aria-label="Search events">
+        </label>
+        <div class="category-filters" id="categoryFilters">
+          <button class="filter-btn active" data-category="All">All events</button>
+          <button class="filter-btn" data-category="Technical">Technical</button>
+          <button class="filter-btn" data-category="Cultural">Cultural</button>
+          <button class="filter-btn" data-category="Sports">Sports</button>
+        </div>
+      </div>
+
+      <div class="event-grid" id="eventGrid"></div>
+      <p class="empty-state hidden" id="emptyState">No events match your search. Try another keyword.</p>
+    </section>
+
+    <section class="about-section" id="about">
+      <div>
+        <p class="eyebrow">MADE FOR STUDENTS</p>
+        <h2>More than a calendar.</h2>
+      </div>
+      <p>CampusConnect makes it easier to find events, try something new and meet people with similar interests. Browse what's coming up and save your place in a few clicks.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#">Campus<span>Connect</span></a>
+    <p>A student project for a more connected campus.</p>
+  </footer>
+
+  <div class="modal-backdrop hidden" id="registrationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="close-btn" id="closeModal" aria-label="Close registration form">×</button>
+      <p class="eyebrow">SAVE YOUR SPOT</p>
+      <h2 id="modalTitle">Register for an event</h2>
+      <p class="modal-event-name" id="modalEventName"></p>
+      <form id="registrationForm">
+        <input type="hidden" id="selectedEventId">
+        <label for="studentName">Full name</label>
+        <input id="studentName" name="studentName" type="text" placeholder="Your name" required maxlength="70">
+        <label for="studentEmail">College email</label>
+        <input id="studentEmail" name="studentEmail" type="email" placeholder="you@example.com" required maxlength="120">
+        <button class="primary-btn form-submit" type="submit">Confirm registration</button>
+        <p class="form-message" id="formMessage" aria-live="polite"></p>
+      </form>
+      <p class="form-note">Demo project: registrations are saved only in this browser.</p>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
